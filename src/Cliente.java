@@ -12,21 +12,28 @@ public class Cliente {
              BufferedReader console = new BufferedReader(new InputStreamReader(System.in))
         ) {
             System.out.println("Conectado ao servidor " + host + ":" + porta);
-            String email;
+            String email, senha, opcao;
 
             while (true) {
-                System.out.print("Digite um email para validar (ou 'sair' para encerrar): ");
-                email = console.readLine();
+                System.out.print("Digite 'registrar' para registrar ou 'login' para fazer login (ou 'sair' para encerrar): ");
+                opcao = console.readLine();
 
-                if ("sair".equalsIgnoreCase(email)) {
+                if ("sair".equalsIgnoreCase(opcao)) {
                     break;
                 }
 
+                System.out.print("Digite seu email: ");
+                email = console.readLine();
+                System.out.print("Digite sua senha: ");
+                senha = console.readLine();
+
+                out.writeUTF(opcao); // Envia a opção para o servidor
                 out.writeUTF(email); // Envia o email para o servidor
+                out.writeUTF(senha); // Envia a senha para o servidor
                 out.flush();
 
-                boolean isValid = in.readBoolean(); // Recebe o resultado como booleano
-                System.out.println("Email válido? " + isValid);
+                boolean sucesso = in.readBoolean(); // Recebe o resultado como booleano
+                System.out.println("Operação bem-sucedida? " + sucesso);
             }
         } catch (IOException e) {
             System.err.println("Erro de conexão: " + e.getMessage());
