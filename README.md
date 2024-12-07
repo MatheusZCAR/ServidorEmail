@@ -1,18 +1,10 @@
-## Getting Started
+## Servidor e Cliente Java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este repositório contém um servidor e um cliente feito em Java que utiliza sockets e threads.
 
-## Folder Structure
+Este servidor recebe do cliente um endereço de email, retornando para o cliente true caso o endereço seja válido ou false caso o endereço seja inválido. A verificação é feita utilizando regex.
 
-The workspace contains two folders by default, where:
+## Como executar
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Para executar o servidor e testá-lo, basta compilar os dois arquivos java, iniciar primeiro o servidor e em outra janela de terminal, iniciar o cliente. No cliente, você poderá enviar os endereços de email.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
